@@ -10,13 +10,34 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-
     <div id="root"></div>
     <script type="text/babel">
-        let addEle = React.createElement('h1',{
-            children : ['Hello']
-        }) ;
-        ReactDOM.render(addEle,document.getElementById('root')) ;
+        
+        function Name({name}){
+            return ( 
+                <h1> my name is {name}</h1>
+            )
+        }
+
+        function Greeting ({correction}){
+            return (
+                <h1> hello,{correction} </h1>
+            )
+        }
+
+        function Main(){
+            return (
+                    <>
+                    <Greeting correction = 'there'/>
+                    <Name name = 'shivam'/>
+                    </>
+            )
+        }
+
+
+
+
+        ReactDOM.render(<Main/>,document.getElementById('root')) ;
     </script>
 </body>
 </html>
