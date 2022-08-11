@@ -1,12 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+import Banner from './components/Banner';
+import Movielist from './components/Movielist';
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+  return ( 
+    <>
+    <NavBar/>
+    <Banner/>
+    <Movielist/>
+    </>
+  )
 }
 
 export default App;
