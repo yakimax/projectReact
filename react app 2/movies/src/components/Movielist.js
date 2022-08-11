@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-
+import {movies} from '../movie'
 export class Movielist extends Component {
   render() {
+    let movieArr = movies.results
     return (
-      <div>Movielist</div>
+        movieArr.map((movieObj) => (
+            <h1>{movieObj.title}</h1>
+        ))
     )
   }
 }
