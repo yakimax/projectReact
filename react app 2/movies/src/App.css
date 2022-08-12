@@ -65,3 +65,29 @@
   margin-left : 5vw ;
   color : red ;
 }
+
+.movie-list{
+  display : flex ;
+  padding : 1rem ;
+  justify-content: center ;
+  flex-wrap: wrap ; 
+}
+
+.movie-card{
+  margin : 1rem ;
+  width : 20vw ;
+  color: white ;
+  position: relative ;
+}
+
+.movie-title{
+  position: absolute ;
+  top : 1rem ;
+  left: 1rem ;
+}
+
+
+.movie-button{
+  position: absolute ;
+  bottom : 2rem ;
+}
