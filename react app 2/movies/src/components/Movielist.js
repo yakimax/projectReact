@@ -10,20 +10,49 @@ export class Movielist extends Component {
     this.state = {
       hover: '',
       paginationArr : [1] ,
-      movies : []
+      movies : [],
+      currPage : 1 
     }
   }
 
   async componentDidMount(){
 
     
-      const res = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=f3d5cc67afc578246bf41c05b08e3164&language=en-US&page=1');
+      const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=f3d5cc67afc578246bf41c05b08e3164&language=en-US&page=${this.state.currPage}`);
       let responseData = res.data ;
       console.log('CDN third');
-      console.log(responseData) ;
       this.setState({
         movies : [...responseData.results]
       })
+  }
+
+
+  changeMovies = async ()=>{
+    const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=f3d5cc67afc578246bf41c05b08e3164&language=en-US&page=${this.state.currPage}`);
+      let responseData = res.data ;
+      this.setState({
+        movies : [...responseData.results]
+      })
+  }
+
+  handleNext = () =>{
+    let tempArr = [] ;
+    for(let i = 1 ; i  <= this.state.paginationArr.length+1 ; i++){
+      tempArr.push(i) ;
+    }
+    console.log(tempArr)
+    this.setState({
+      paginationArr : [...tempArr],
+      currPage : this.state.currPage+1
+    },this.changeMovies)
+  }
+
+  handlePageClick = (value)=>{
+      if(this.state.currPage != value){ 
+        this.setState({
+          currPage : value 
+        },this.changeMovies)
+      }
   }
 
   render() {
@@ -64,17 +93,17 @@ export class Movielist extends Component {
       </div>
       
 
-      //third element in movie-card --------------------------------------------------------------------------------
+      //third element in movie-card pagination --------------------------------------------------------------------------------
       <div className = 'text-center pagination' style={{ display : 'flex' , justifyContent : 'center' }}>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
               <li class="page-item"><a class="page-link" href="#">Previous</a></li>
               {
-                  this.state.paginationArr.map((pagenum)=>{
-                    <li class="page-item"><a class="page-link" href="#">{pagenum}</a></li>
-                  })
+                  this.state.paginationArr.map((pagenum)=>(
+                    <li class="page-item"><a class="page-link" onClick={()=>{this.handlePageClick(pagenum)}} href="#">{pagenum}</a></li>
+                  ))
               }
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              <li class="page-item" onClick={this.handleNext}><a class="page-link" href="#">Next</a></li>
             </ul>
           </nav>
       </div>
