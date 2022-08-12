@@ -13,10 +13,16 @@ export class Movielist extends Component {
     let movieArr = movies.results ;
 
     return (
+      //fragment started
+
       <>
+      //first element in movie-card---------------------------------
       <div>
         <h3 classname = "text-center"><strong>Trending</strong></h3>
       </div>
+      
+
+      //second element in movie-card----------------------------------------------------------------------------------------------------------------------------
       <div className = 'movie-list'>
         {
             movieArr.map((movieObj) => (
@@ -36,6 +42,9 @@ export class Movielist extends Component {
             ))
         }
       </div>
+      
+
+      //third element in movie-card --------------------------------------------------------------------
       <div className = 'text-center pagination' style={{ display : 'flex' , justifyContent : 'center' }}>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -47,7 +56,9 @@ export class Movielist extends Component {
             </ul>
           </nav>
       </div>
+
       </>
+      //fragment ended
     )
   }
 }
