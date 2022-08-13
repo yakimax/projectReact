@@ -2,13 +2,15 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Banner from './components/Banner';
 import Movielist from './components/Movielist';
+import Favourites from './components/Favourites';
 
 function App() {
-  return ( 
+  return (
     <>
     <NavBar/>
-    <Banner/>
-    <Movielist/>
+    {/* <Banner/>
+    <Movielist/> */}
+    <Favourites/>
     </>
   )
 }
