@@ -35,6 +35,15 @@ export class Movielist extends Component {
       })
   }
 
+  handlePrevious = () => {
+    
+    if(this.state.currPage != 1){
+        this.setState({
+        currPage : this.state.currPage-1
+      },this.changeMovies)
+    }
+  }
+
   handleNext = () =>{
     let tempArr = [] ;
     for(let i = 1 ; i  <= this.state.paginationArr.length+1 ; i++){
@@ -97,7 +106,7 @@ export class Movielist extends Component {
       <div className = 'text-center pagination' style={{ display : 'flex' , justifyContent : 'center' }}>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#" onClick={this.handlePrevious}>Previous</a></li>
               {
                   this.state.paginationArr.map((pagenum)=>(
                     <li class="page-item"><a class="page-link" onClick={()=>{this.handlePageClick(pagenum)}} href="#">{pagenum}</a></li>
