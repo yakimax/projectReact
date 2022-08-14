@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import {movies} from '../movie'
 import axios from 'axios'
 
 export class Movielist extends Component {
@@ -9,9 +8,10 @@ export class Movielist extends Component {
     console.log('constructor first')
     this.state = {
       hover: '',
-      paginationArr : [1] ,
+      paginationArr : [1],
       movies : [],
-      currPage : 1 
+      currPage : 1,
+      favourites : []
     }
   }
 
@@ -66,6 +66,13 @@ export class Movielist extends Component {
 
   handleFavourites = (moviesObj) =>{
     let oldData = JSON.parse(localStorage.getItem( 'movies' || '[]' ) ) ;
+
+    if(this.state.favourites.includes(moviesObj.id)){
+
+    }
+    else{
+      oldData.push(moviesObj) ;
+    }
   }
 
   render() {
