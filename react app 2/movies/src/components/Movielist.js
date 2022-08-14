@@ -65,14 +65,28 @@ export class Movielist extends Component {
   }
 
   handleFavourites = (moviesObj) =>{
-    let oldData = JSON.parse(localStorage.getItem( 'movies' || '[]' ) ) ;
+    let oldData = JSON.parse(localStorage.getItem('movies') || '[]' )  ;
 
     if(this.state.favourites.includes(moviesObj.id)){
-
+        oldData = oldData.filter((m)=>{
+          return moviesObj.id != m.id ;
+        }) ;
     }
     else{
       oldData.push(moviesObj) ;
     }
+    localStorage.setItem('movies',JSON.stringify(oldData)) ;
+    console.log(oldData) ;
+    this.handleFavouritesState() ;
+  }
+
+
+  handleFavouritesState = ()=>{
+    let oldData = JSON.parse(localStorage.getItem('movies') || '[]') ;
+    let tempData = oldData.map((moviesObj)=> moviesObj.id)
+    this.setState({
+      favourites : [...tempData]
+    })
   }
 
   render() {
@@ -100,10 +114,12 @@ export class Movielist extends Component {
                 <img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`} style={{height : '40vh' ,width : '20vw'}} className ="card-img-top movie-img" alt="..."></img>
                 <h5 className="card-title movie-title">{movieObj.title}</h5>
                 
-                <div className = 'button-wrapper' onClick={this.handleFavourites(movieObj)} style={{display : 'flex' , justifyContent : 'center'}}>
+                <div className = 'button-wrapper'  style={{display : 'flex' , justifyContent : 'center'}}>
                 { 
                     this.state.hover == movieObj.id &&
-                    <a href="#" className="btn btn-primary movie-button text-center">Add to Favourites</a>
+                    <a href="#"  className="btn btn-primary movie-button text-center"  onClick={()=>{this.handleFavourites(movieObj)}} > 
+                    { this.state.favourites.includes(movieObj.id)?"Remove from favourites":"Add to Favourites" }
+                    </a>
                 }
                 </div>
             
