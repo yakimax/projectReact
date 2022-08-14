@@ -64,9 +64,13 @@ export class Movielist extends Component {
       }
   }
 
+  handleFavourites = (moviesObj) =>{
+    let oldData = JSON.parse(localStorage.getItem( 'movies' || '[]' ) ) ;
+  }
+
   render() {
     console.log('render second');
-
+    
     return (
 
 
@@ -89,7 +93,7 @@ export class Movielist extends Component {
                 <img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`} style={{height : '40vh' ,width : '20vw'}} className ="card-img-top movie-img" alt="..."></img>
                 <h5 className="card-title movie-title">{movieObj.title}</h5>
                 
-                <div className = 'button-wrapper' style={{display : 'flex' , justifyContent : 'center'}}>
+                <div className = 'button-wrapper' onClick={this.handleFavourites(movieObj)} style={{display : 'flex' , justifyContent : 'center'}}>
                 { 
                     this.state.hover == movieObj.id &&
                     <a href="#" className="btn btn-primary movie-button text-center">Add to Favourites</a>
