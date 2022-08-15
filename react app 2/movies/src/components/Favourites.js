@@ -60,6 +60,7 @@ export class Favourites extends Component {
       movies : temp 
     })
   }
+  
 
   handleRatingAscending  = () => {
     let temp = this.state.movies ;
