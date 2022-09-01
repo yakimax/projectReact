@@ -4,10 +4,12 @@ export class Favourites extends Component {
   constructor(){
     super();
     this.state = {
+      
       currGenre : 'All Genre',
       genres : [],
       movies : [],
       currText : ''
+
     }
   }
 
