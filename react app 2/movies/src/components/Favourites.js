@@ -68,7 +68,7 @@ export class Favourites extends Component {
       return b.vote_average-a.vote_average ;
     })
     this.setState({
-      movies : temp 
+      movies : temp ,
     })
   }
   
