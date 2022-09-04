@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react' ;
 
 export class Favourites extends Component {
   constructor(){
-    super();
+    super() ;
     this.state = {
-      currGenre : 'All Genre',
-      genres : [],
-      movies : [],
+      currGenre : 'All Genre' ,
+      genres : [] ,
+      movies : [] ,
       currText : ''
     }
   }
