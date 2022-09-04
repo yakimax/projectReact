@@ -9,6 +9,7 @@ export class Favourites extends Component {
       movies : [],
       currText : ''
     }
+    
   }
 
   handleCurrentGenre = (genre)=>{
