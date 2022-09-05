@@ -63,12 +63,12 @@ export class Favourites extends Component {
   
 
   handleRatingAscending  = () => {
-    let temp = this.state.movies ;
+    let temp = this.state.movies;
     temp.sort((a,b)=>{
-      return b.vote_average-a.vote_average ;
+      return b.vote_average-a.vote_average;
     })
     this.setState({
-      movies : temp ,
+      movies : temp,
     })
   }
   
