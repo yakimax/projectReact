@@ -1,8 +1,14 @@
-import React from 'react'
+import { React , useState } from 'react' ;
 
-function Login() {
+function Login(){
+  const {email,setEmail} = useState('') ;
+  const {pass,setPass} = useState('') ;
   return (
-    <div>Login</div>
+    <>
+      <input type = "text" onChange={setEmail}></input>
+      <input type = "text" onChange={}></input>
+      <button type = "submit">Log in</button>
+    </>
   )
 }
 
