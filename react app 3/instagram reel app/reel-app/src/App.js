@@ -13,20 +13,20 @@ function App() {
       <Route path = "/feed">
         <Feed></Feed>
       </Route>
-      <Route path = "/login"> 
+      <Route path = "/login">
         <Login></Login>
       </Route>
-      <Route path = "/pagenotfound"> 
+      <Route path = "/pagenotfound">
         <PageNotFound></PageNotFound>
       </Route>
-      <Route path = "/signup"> 
+      <Route path = "/signup">
         <Signup></Signup>
       </Route>
-      <Route path = "/profile"> 
+      <Route path = "/profile">
         <Profile></Profile>
       </Route>
     </Switch>
   );
 }
 
-export default App;
+export default App ;
