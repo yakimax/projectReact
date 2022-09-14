@@ -5,8 +5,8 @@ function Login(){
   const {pass,setPass} = useState('') ;
   return (
     <>
-      <input type = "text" onChange={setEmail}></input>
-      <input type = "text" onChange={}></input>
+      <input type = "text" onChange={trackmail}></input>
+      <input type = "text" onChange={trackpass}></input>
       <button type = "submit">Log in</button>
     </>
   )
