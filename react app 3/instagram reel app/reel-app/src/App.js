@@ -16,7 +16,7 @@ function App() {
       <Route path = "/login">
         <Login></Login>
       </Route>
-      <Route path = "/pagenotfound">
+      <Route>
         <PageNotFound></PageNotFound>
       </Route>
       <Route path = "/signup">
