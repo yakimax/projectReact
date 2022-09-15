@@ -1,8 +1,8 @@
 import { React , useState } from 'react' ;
 
 function Login(){
-  const {email,setEmail} = useState('') ;
-  const {pass,setPass} = useState('') ;
+  const [email,setEmail] = useState('') ;
+  const [pass,setPass] = useState('') ;
 let trackmail = (e)=>{
   setEmail(e.target.value)
 }
@@ -10,13 +10,15 @@ let trackpass = (e)=>{
   setPass(e.target.value);
 }
 let displayDetails =()=>{
-  alert(email +""+pass)
+  alert(email +"    "+pass)
 }
   return (
     <>
-      <input type = "text" onChange={trackmail}></input>
-      <input type = "text" onChange={trackpass}></input>
-      <button type = "submit" onSubmit={displayDetails}>Log in</button>
+      <input type = "text" value = {email} placeholder = 'email' onChange={trackmail}></input>
+      <br></br>
+      <input type = "text" value = {pass} placeholder = 'password' onChange={trackpass}></input>
+      <br></br>
+      <button type = "click" onClick={displayDetails}>Log in</button>
     </>
   )
 }
