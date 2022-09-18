@@ -24,7 +24,6 @@ function App() {
       </Route>
       <Route path = "/profile">
         <Profile></Profile>
-        
       </Route>
     </Switch>
   );
