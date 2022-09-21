@@ -16,14 +16,14 @@ function App() {
       <Route path = "/login">
         <Login></Login>
       </Route>
-      <Route>
-        <PageNotFound></PageNotFound>
-      </Route>
       <Route path = "/signup">
         <Signup></Signup>
       </Route>
       <Route path = "/profile">
         <Profile></Profile>
+      </Route>
+      <Route>
+        <PageNotFound></PageNotFound>
       </Route>
     </Switch>
   );

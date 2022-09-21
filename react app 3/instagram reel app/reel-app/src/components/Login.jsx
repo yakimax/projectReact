@@ -1,7 +1,6 @@
 import { React , useEffect, useState } from 'react' ;
 import {auth} from '../firebase';
 import {onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth'
-import { async } from '@firebase/util';
 
 function Login(){
   const [email,setEmail] = useState('') ;
