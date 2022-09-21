@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+.pimg{
+  height: 10rem ;
+  width: 10rem ;
+  border-radius: 50% ;
+}
+
+.img_container{
+  display: flex;
+  align-items: center;
+  
+}
+
+.content{
+  color: grey;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.main{
+  display: flex;
+  height: clac(100vh-10vh);
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.header{
+  height: 2.5rem;
+  border-bottom:2px solid grey ;
+}
+
+.details{
+  text-align: center;
+}
+
+.main>* {
+  height: 80%;
+  width: 40%;
+}
