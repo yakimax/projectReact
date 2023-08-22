@@ -1,10 +1,15 @@
 import './App.css';
+import Signup from './components/Signup' ;
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Signup/>
+      </div>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App ;
