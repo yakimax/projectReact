@@ -4,11 +4,24 @@ export default class Todo extends Component {
     constructor(){
         super();
         this.state = {
-            tasks : [{value : "aalu lena hai",id: 0}] ;
-            currTask: "" ;
+            tasks : [{value : "aalu lena hai",id: 0}] 
+            currTask: "" 
         }
     }
   
+    handleChange = (e)=>{
+        this.setState({
+            currTask : e.target.value 
+        })
+    }
+
+    handleSubmit = () =>{
+        this.setState({
+            tasks : [...this.state.tasks,{value : this.state.currTask , id : this.state.tasks.length+1}]
+            currTask : "" 
+        })
+    }
+
     render() {
     return (
     <>
