@@ -1,6 +1,7 @@
 .signup-wrapper{
     display: flex;
     justify-content: center;
+    
 }
 .signup-card{
     width: 28vw ;
@@ -13,4 +14,19 @@
     align-items: center;
     margin-top: 2% ;
     justify-content: center ;
+}
+
+.mobilecaurosel{
+    margin-top: 8vh ;
+    height : 590px ;
+    width : 441px ;
+    position: relative ;
+}
+
+.carousel{
+    position: absolute ;
+    height: 423px ;
+    width: 241px ;
+    top: 45px ;
+    left:72px ;
 }
