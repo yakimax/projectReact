@@ -34,7 +34,7 @@ export default function Login() {
     
     return (
 
-    <div class ="signup-wrapper">
+    <div className ="signup-wrapper">
       <div className="mobilecaurosel" style={{backgroundImage : 'url('+bg+')' , backgroundSize : 'cover'}}>
         <div className ="carousel">
             <CarouselProvider touchEnabled={false} isPlaying={true} hasMasterSpinner infinite={true} dragEnabled={false} visibleSlides={1}  naturalSlideWidth={238} naturalSlideHeight={423} totalSlides={3}>
@@ -46,16 +46,16 @@ export default function Login() {
           </CarouselProvider>
         </div>
       </div>
-    <div class ="signup-card">
+    <div className ="signup-card">
         <Card variant="outlined">
             
             <CardContent>
-                <div class ="insta-logo">
+                <div className ="insta-logo">
                     <img src={insta} alt='instagram'></img>
                 </div>
               <Alert severity="error">This is an error alert — check it out!</Alert>
-              <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth="true" margin="dense" />
-              <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth="true" margin="dense" />
+              <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin="dense" />
+              <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin="dense" />
               <Typography color='primary' className={classes.text2} >
                 Forget Password ?
               </Typography>

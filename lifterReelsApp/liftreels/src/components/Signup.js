@@ -11,15 +11,19 @@ import TextField from '@mui/material/TextField';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import {Link} from 'react-router-dom' ;
 import bg from '../misc/phones.png' ;
-import { CarouselProvider, Slider, Slide ,Image} from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import { CarouselProvider, Slider, Slide ,Image} from 'pure-react-carousel' ;
+import 'pure-react-carousel/dist/react-carousel.es.css' ;
 import img1 from '../misc/img1.PNG' ;
 import img2 from '../misc/img2.PNG' ;
 import img3 from '../misc/img3.PNG' ;
+import { useContext } from 'react' ;
+import { AuthContext } from '../contextAPIs/AuthContext' ;
 
 
 
 export default function Signup() {
+    const store = useContext(AuthContext) ;
+    console.log(store) ;
     const useStyles = makeStyles({
         text1 : {
             color : 'grey' ,
@@ -50,16 +54,16 @@ export default function Signup() {
     <Card variant="outlined">
         
         <CardContent>
-            <div class ="insta-logo">
+            <div className ="insta-logo">
                 <img src={insta} alt='instagram'></img>
             </div>
           <Typography className={classes.text1} variant="subtitles1" >
             Signup and lift your mood while connected with your friends{'\u2728'}
           </Typography>
           <Alert severity="error">This is an error alert — check it out!</Alert>
-          <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth="true" margin="dense" />
-          <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth="true" margin="dense" />
-          <TextField id="outlined-basic" label="Full Name" variant="outlined" fullWidth="true" margin="dense" />
+          <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin="dense" />
+          <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin="dense" />
+          <TextField id="outlined-basic" label="Full Name" variant="outlined" fullWidth={true} margin="dense" />
         <Button fullWidth={true} color="secondary" margin="dense" variant='outlined' startIcon={<CloudUploadIcon  />} component="label">
           upload profile image
           <input type='file' accept='image/*' hidden/>
