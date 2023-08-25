@@ -8,13 +8,16 @@ import './signup.css';
 import { makeStyles } from '@mui/styles';
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
-import {Link} from 'react-router-dom' ;
+import {Link, useNavigate} from 'react-router-dom' ;
 import bg from '../misc/phones.png' ;
 import { CarouselProvider, Slider, Slide ,Image} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import img1 from '../misc/img1.PNG' ;
 import img2 from '../misc/img2.PNG' ;
 import img3 from '../misc/img3.PNG' ;
+import { useState,useContext } from 'react';
+import { AuthContext, AuthProvider } from '../contextAPIs/AuthContext';
+
 
 export default function Login() {
     const useStyles = makeStyles({
@@ -31,6 +34,30 @@ export default function Login() {
         }
     })
     const classes = useStyles() ;
+    const [email,setEmail] = useState('') ;
+    const [password,setPassword] = useState('') ;
+    const [error,setError] = useState('') ;
+    const [loading,setLoading] = useState(false) ;
+    const history = useNavigate() ;
+    const {login} = useContext(AuthContext) ;
+
+    let handleLogin = async()=>{
+      try{
+        setError('') ;
+        setLoading(true) ;
+        let response = await login(email,password) ;
+        console.log(response.user.uid) ;
+        setLoading(false) ;
+        history('/') ;
+      }catch(err){
+        setError(err);
+        setTimeout(()=>{
+          setError('');
+        },2000)
+        setLoading(false);
+      }
+    }
+
     
     return (
 
@@ -48,20 +75,20 @@ export default function Login() {
       </div>
     <div className ="signup-card">
         <Card variant="outlined">
-            
+        
             <CardContent>
                 <div className ="insta-logo">
                     <img src={insta} alt='instagram'></img>
                 </div>
-              <Alert severity="error">This is an error alert — check it out!</Alert>
-              <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin="dense" />
-              <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin="dense" />
+              {error !== '' && <Alert severity="error">{error}</Alert>}
+              <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} margin="dense" value={email} onChange={(e)=>setEmail(e.target.value)} />
+              <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth={true} margin="dense" value={password} onChange={(e)=>setPassword(e.target.value)}/>
               <Typography color='primary' className={classes.text2} >
                 Forget Password ?
               </Typography>
             </CardContent>
           <CardActions>
-            <Button color="primary" variant='contained' margin='dense' fullWidth={true}>
+            <Button color="primary" variant='contained' margin='dense' fullWidth={true} disabled ={loading} onClick={handleLogin}>
               Log in
             </Button>
           </CardActions>
