@@ -22,30 +22,28 @@ export function AuthProvider({children}){
     }
 
 
-useEffect(()=>{
-    let subs = auth.onAuthStateChanged((userid)=>{
-        setUser(userid) ;
-        setLoading(false) ;
-    })
-    return ()=>{
-        subs() ; 
+    useEffect(()=>{
+        let subs = auth.onAuthStateChanged((userid)=>{
+            setUser(userid) ;
+            setLoading(false) ;
+        })
+        return ()=>{
+            subs() ; 
+        }
+    },[])
+
+
+    const store = {
+        user,
+        signout,
+        signup,
+        login
     }
-},[])
 
-
-const store = {
-    user,
-    signout,
-    signup,
-    login
-}
-
-return (
-    <AuthContext.Provider value={store}>
-        {!loading && children}
-    </AuthContext.Provider>
-)
-
-
+    return (
+        <AuthContext.Provider value={store}>
+            {!loading && children}
+        </AuthContext.Provider>
+    )
 
 }
