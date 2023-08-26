@@ -13,14 +13,11 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />}/>
           <Route path='/signin' element={<Signup />}/>
-          <Route path='/' element={<PrivateRoute />}>
-            <Route path='/' element={<Feed/>}/>
-          </Route>
+          <Route path='/' element={<PrivateRoute><Feed/></PrivateRoute>}/>
         </Routes>
       </AuthProvider>
     </BrowserRouter>
   );
 }
-
 
 export default App ;

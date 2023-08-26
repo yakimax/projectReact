@@ -9,7 +9,7 @@ function Feed() {
   return (
   <>
       <div>Welcome to Feeds</div>
-      <Button onClick={signout}>Sign Out</Button>
+      <button onClick={signout}>Sign Out</button>
   </>
   )
 }

@@ -55,7 +55,6 @@ export default function Signup() {
         setLoading(true) ;
         let userObj = await signup(email,password) ;
         let userid = userObj.user.uid ;
-        // console.log(userid);
         let uploadFun = storage.ref(`/users/${userid}/profileImage`).put(file) ;
         uploadFun.on('state_changed',fn1,fn2,fn3) ;
         function fn1(snapshot){
