@@ -26,7 +26,7 @@ function Posts({userData}) {
                     {
                         posts.map((post,id)=>(
                             <React.Fragment key={id}>
-                                <div className='video'>
+                                <div className='videos'>
                                     <Videos src={post.pUrl}/>
                                 </div>
                             </React.Fragment>
