@@ -4,6 +4,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Login from './components/Login.js';
 import { AuthProvider } from './contextAPIs/AuthContext';
 import Feed from './components/Feed';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -12,11 +13,14 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />}/>
           <Route path='/signin' element={<Signup />}/>
-          <Route path='/'element={<Feed/>}/>
+          <Route path='/' element={<PrivateRoute />}>
+            <Route path='/' element={<Feed/>}/>
+          </Route>
         </Routes>
       </AuthProvider>
     </BrowserRouter>
   );
 }
+
 
 export default App ;
