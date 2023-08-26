@@ -16,7 +16,7 @@ import img1 from '../misc/img1.PNG' ;
 import img2 from '../misc/img2.PNG' ;
 import img3 from '../misc/img3.PNG' ;
 import { useState,useContext } from 'react';
-import { AuthContext, AuthProvider } from '../contextAPIs/AuthContext';
+import { AuthContext } from '../contextAPIs/AuthContext';
 
 
 export default function Login() {

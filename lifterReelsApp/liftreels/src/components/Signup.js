@@ -43,6 +43,7 @@ export default function Signup() {
     const history = useNavigate() ; 
     const {signup} = useContext(AuthContext) ;
 
+
     let handleSignUP = async()=>{
       if(file == null){
         setError("please upload your profile image first") ;

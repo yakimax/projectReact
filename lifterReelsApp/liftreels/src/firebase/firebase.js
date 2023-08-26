@@ -1,5 +1,4 @@
 import firebase from 'firebase/compat/app' ;
-// import { initializeApp } from "firebase/app";
 import 'firebase/compat/firestore' ;
 import 'firebase/compat/auth' ;
 import 'firebase/compat/storage' ;
@@ -26,5 +25,6 @@ const firestore = firebase.firestore() ;
 
 export const database = {
     users : firestore.collection('users') ,
+    posts : firestore.collection('posts'),
     getTimeStamp : firebase.firestore.FieldValue.serverTimestamp 
 }
