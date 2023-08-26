@@ -12,7 +12,7 @@ function Feed() {
       setUserData(snaphot.data()) ;
     })
     return ()=>{
-      unsub();
+      unsub() ;
     }
   },[user])
 

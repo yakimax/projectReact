@@ -1,0 +1,21 @@
+.video_container{
+    height : 80vh ;
+    border-radius: 20px ;
+    background-color: white ;
+    overflow: scroll ;
+    scroll-snap-type: y mandatory ;
+    scrollbar-width: none ;
+
+}
+
+.video_container::-webkit-scrollbar{
+    display: none ;
+}
+
+.video{
+    position: relative ;
+}
+
+.pp{
+    position: absolute ;
+}
