@@ -54,11 +54,10 @@ function UploadFile(props) {
                 uprofile : props.user.profileUrl,
                 userId : props.user.userID,
                 createdAt : database.getTimeStamp()
-
             }
             database.posts.add(obj).then(async (ref)=>{
                    await database.users.doc(props.user.userID).update({
-                   postIds : props.user.postIds != null ? [...props.user.postsIds,ref.id] : [ref.id] 
+                   postIds : props.user.postIds != null ? [...props.user.postIds,ref.id] : [ref.id] 
                 })
             })
           }).then(()=>{

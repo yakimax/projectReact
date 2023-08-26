@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {database} from '../firebase/firebase'
+import { database } from '../firebase/firebase';
 import { CircularProgress } from '@mui/material';
 import Videos from './Videos';
 import './Posts.css'
@@ -8,8 +8,8 @@ import './Posts.css'
 function Posts({userData}) {
     const[posts,setPost] = useState(null) ;
     useEffect(()=>{
-        let parr = [] ;
-        const unsub = database.posts.orderBy('createdAt','desc').onSnapShot((querrySnapshot)=>{
+        let parr = [] 
+        const unsub = database.posts.orderBy('createdAt','desc').onSnapshot((querrySnapshot)=>{
             parr = [] ;
             querrySnapshot.forEach((doc)=>{
                 let data = {...doc.data(),postId : doc.id}
@@ -32,7 +32,6 @@ function Posts({userData}) {
                             </React.Fragment>
                         ))
                     }
-
             </div> 
         }
     </div>
