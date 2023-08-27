@@ -4,6 +4,7 @@ import { CircularProgress } from '@mui/material';
 import Videos from './Videos';
 import './Posts.css'
 import Avatar from '@mui/material/Avatar';
+import Likes from './Likes';
 
 
 
@@ -19,7 +20,7 @@ function Posts(props) {
             })
             setPost(parr) ;
         })
-        return unsub ;
+        return unsub 
     },[])
     console.log(posts,props.user) ;
   return (
@@ -31,10 +32,11 @@ function Posts(props) {
                             <React.Fragment key={id}>
                                 <div className='videos'>
                                     <Videos src={post.pUrl}/>
-                                    <div className='pp'>
+                                    <div className='pp' style={{display: 'flex'}}>
                                         <Avatar  src={props.user.profileUrl} />
                                         <h4>{props.user.fullName}</h4>
                                     </div>
+                                    <Likes userData={props.user} postData={post} />
                                 </div>
                             </React.Fragment>
                         ))
