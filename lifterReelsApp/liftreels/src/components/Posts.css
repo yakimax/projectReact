@@ -43,3 +43,41 @@
     cursor: pointer ;
     color: white ;
 }
+
+.chat-styling{
+    position: absolute ;
+    bottom: 2% ;
+    left: 25% ;
+    color: white;
+}
+
+.modal-container{
+    display: flex ;
+    height: 100% ;
+    width: 100% ;
+}
+
+
+.video-modal{
+    display: flex ;
+    height: 100% ;
+    width: 50% ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+}
+
+.comment-modal { 
+    display: flex ;
+    height: 100% ;
+    width: 50% ;
+}
+
+.modal-video{
+    height: 100% ;
+    width: 100% ;
+}
+
+.modal-video video{
+    height :85vh ;
+}

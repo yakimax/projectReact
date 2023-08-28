@@ -24,7 +24,7 @@ function Feed() {
         <button onClick={signout}>Sign Out</button>
       </div>
       <UploadFile user={userData}/>
-      <Posts user={userData}/>
+      <Posts userData={userData}/>
     </div>
   </>
   )

@@ -6,19 +6,18 @@ import './Posts.css'
 function Likes({userData,postData}) {
     const [like,setLike] = useState(null) ;
     useEffect(()=>{
-        let check = postData.likes.includes(userData.userId) ? true : false ;
-        setLike(check) ;
+        let check = postData.likes.includes(userData.userId) ? true : false 
+        setLike(check) 
     },[postData])
     const handleClick = ()=>{
-        if(like===true){
-            let narr = postData.likes.filter((el)=>
-                 el !== userData.userId
-            )
+        if(like==true){
+            let narr = postData.likes.filter((el)=>el != userData.userId)
             database.posts.doc(postData.postId).update({
                 likes : narr 
-            });
+            })
         }else{
-            let narr = [...postData.likes ,userData.userId ]
+            let narr = postData.likes !== null ?  [...postData.likes ,userData.userId ] : [userData.userId] 
+            console.log(narr);
             database.posts.doc(postData.postId).update({
                 likes : narr 
             });
@@ -28,10 +27,10 @@ function Likes({userData,postData}) {
   return (
     <div>
         {
-            like !== null ?
+            like != null ?
             <>
                 {
-                    like===true ? <FavoriteIcon onClick={handleClick} className={'icon-styling like'}/> : <FavoriteIcon onClick={handleClick} className={'icon-styling unlike'}/>
+                    like==true ? <FavoriteIcon onClick={handleClick} className={`icon-styling like`}/> : <FavoriteIcon onClick={handleClick} className={`icon-styling unlike`}/>
                 }
             </> :
             <>
