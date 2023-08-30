@@ -95,7 +95,6 @@ export default function Login() {
           </CardActions>
         </Card>
 
-
         <Card variant='outlined' className={classes.card2}>
             <CardContent>
                 <Typography className={classes.text1} variant='outlined' >
