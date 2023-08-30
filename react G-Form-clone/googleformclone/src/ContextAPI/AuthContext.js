@@ -3,7 +3,7 @@ import { auth } from "../../../../lifterReelsApp/liftreels/src/firebase/firebase
 
 export const AuthContext = React.createContext();
 
-export function AuthContext({children}){
+export function AuthProvider({children}){
 
     const [user,setUser] = useState('') ;
     const [load,setLoading] = useState(true) ;
@@ -38,7 +38,7 @@ export function AuthContext({children}){
     }
 
     return (
-        <AuthContext.Provider>
+        <AuthContext.Provider value={store}>
             {load && children}
         </AuthContext.Provider>
     )
