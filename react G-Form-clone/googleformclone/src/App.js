@@ -1,11 +1,10 @@
 import './App.css';
 import Fireauth from './components/Fireauth';
+import 
 
 function App() {
   return (
-    <div className="App">
-      <Fireauth/>
-    </div>
+    
   );
 }
 
