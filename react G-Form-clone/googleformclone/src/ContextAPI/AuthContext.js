@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react" ;
-import { auth } from "../../../../lifterReelsApp/liftreels/src/firebase/firebase";
+import { auth } from "../firebase/firebase";
 
 export const AuthContext = React.createContext();
 
 export function AuthProvider({children}){
 
     const [user,setUser] = useState('') ;
-    const [load,setLoading] = useState(true) ;
+    const [load,setLoading] = useState(false) ;
 
     function Login(email,password){
         return auth.signInWithEmailAndPassword(email,password);
