@@ -1,11 +1,7 @@
 import React, {useContext} from 'react' ;
 import { useState } from 'react' ;
 import { AuthContext } from '../ContextAPI/AuthContext';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+
 
 
 function SignupComp() {
@@ -24,24 +20,11 @@ function SignupComp() {
                 {
                     user === '' ? 
                     <>
-                        <Card sx={{ maxWidth: 345 }}>
-                        <CardActionArea>
-                            <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000
-                                species, ranging across all continents except Antarctica
-                            </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button size="small" color="primary">
-                            Share
-                            </Button>
-                        </CardActions>
-                        </Card>
+                        <label htmlFor='email'/>
+                        <input type='email' id='email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                        <label htmlFor='pass'/>
+                        <input type='password' id='pass' value={pass} onChange={(e)=>setPass(e.target.value)}/>
+                        <button type='button' onClick={handleSubmit}>Sign Up</button>
                     </>
                     :
                     <>
