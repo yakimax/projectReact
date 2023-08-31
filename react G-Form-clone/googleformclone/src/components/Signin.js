@@ -29,7 +29,6 @@ function Signin() {
         <button type='button' onClick={handleSubmit}>login</button>
       <Link to='/signup' style={{textDecoration : "none"}}>or Sign up</Link>
     </>
-
   )
 }
 
