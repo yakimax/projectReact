@@ -6,14 +6,12 @@ import { useNavigate } from 'react-router-dom';
 function Signin() {
     const [email,setEmail] = useState('') ;
     const [pass,setPass] = useState('') ;
-    const [user,setUser] = useState('') ;
     const {Login} = useContext(AuthContext) ;
     const history = useNavigate();
 
     let handleSubmit = async()=>{
         try{
-            let userObj = await Login(email,pass);
-            setUser(userObj.user);
+            await Login(email,pass);
             history('/main');
         }catch(err){
             console.log(err);

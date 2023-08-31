@@ -7,12 +7,13 @@ function Main() {
         await SignOut ;
         navigateTo('/login') ;
     }
-
-    const {SignOut} = useContext(AuthContext) ;
+    const {SignOut,user} = useContext(AuthContext) ;
     const navigateTo = useNavigate() ;
   return (
-    <div><button type='button' onClick={handleLogout}>logout</button></div>
-    
+    <div>
+        <div>{user.uid}</div>
+        <button type='button' onClick={handleLogout}>logout</button>
+    </div>
   )
 }
 
