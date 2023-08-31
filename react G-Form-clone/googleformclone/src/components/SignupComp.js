@@ -1,6 +1,7 @@
 import React, {useContext} from 'react' ;
 import { useState } from 'react' ;
 import { AuthContext } from '../ContextAPI/AuthContext';
+import { Link ,useNavigate} from 'react-router-dom';
 
 
 
@@ -9,10 +10,17 @@ function SignupComp() {
     const [pass,setPass] = useState('') ;
     const [user,setUser] = useState('') ;
     const {SignUp} = useContext(AuthContext) ;
+    const history = useNavigate();
 
-    let handleSubmit = ()=>{
-        let userObj = SignUp(email,pass);
-        setUser(userObj.user); 
+    let handleSubmit = async()=>{
+        try{
+            let userObj = await SignUp(email,pass);
+            setUser(userObj.user); 
+            console.log(userObj);
+            history('/main');
+        }catch(err){
+            console.log(err);
+        }
     }
 
     return (
@@ -25,10 +33,11 @@ function SignupComp() {
                         <label htmlFor='pass'/>
                         <input type='password' id='pass' value={pass} onChange={(e)=>setPass(e.target.value)}/>
                         <button type='button' onClick={handleSubmit}>Sign Up</button>
+                        <Link to='/login' style={{textDecoration : "none"}}>or Sign in</Link>
                     </>
                     :
                     <>
-                        {user.uid}
+
                     </>
                 }
             </>
