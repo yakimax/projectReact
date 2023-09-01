@@ -16,12 +16,12 @@ function Signin() {
     const [email,setEmail] = useState('') ;
     const [pass,setPass] = useState('') ;
     const {Login} = useContext(AuthContext) ;
-    const history = useNavigate() ;
+    const navigate = useNavigate() ;
 
-    let handleSubmit = async()=>{
+    let handleSubmit = ()=>{
         try{
-            await Login(email,pass) ;
-            history('/') ;
+            Login(email,pass) ;
+            navigate('/') ;
         }catch(err){
             console.log(err) ;
         }
@@ -37,8 +37,8 @@ function Signin() {
           <div className='signupMain'>
             <TextField id="email" label="Email" variant="outlined" onChange={(e)=>setEmail(e.target.value)}/>
             <TextField id="pass" label="Password" variant="outlined"  onChange={(e)=>setPass(e.target.value)}/>
-            <Button color="primary" size='large' variant='contained'   sx={{ width: 210,height:30}} onClick={handleSubmit}>SignUp</Button>
-            <p>Dont have an account? <Link to='/signup' style={{textDecoration : "none"}}>Sign up</Link></p>
+            <Button color="primary" size='large' variant='contained'   sx={{ width: 210,height:30}} onClick={handleSubmit}>login</Button>
+            <p>Dont have an account? <Link to='/signup' style={{textDecoration : "none"}}> Sign up</Link></p>
           </div>
         </Paper>
     </div>

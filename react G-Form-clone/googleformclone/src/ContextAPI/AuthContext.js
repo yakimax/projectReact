@@ -22,11 +22,8 @@ export function AuthProvider({children}){
 
     useEffect(()=>{
         let Listner =  auth.onAuthStateChanged((UserId)=>{
-            if(UserId){
-                setUser(UserId);
-            }else{
-                setUser(null);
-            }
+            setLoading(true);
+            setUser(UserId);
             setLoading(false);
         })
         return ()=>{

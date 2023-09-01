@@ -46,7 +46,7 @@ function SignupComp() {
                             <TextField id="pass" label="Password" variant="outlined"  onChange={(e)=>setPass(e.target.value)}/>
                             <TextField id="name" label="User Name" variant="outlined"  onChange={(e)=>setName(e.target.value)}/>
                             <Button color="primary" size='large' variant='contained'   sx={{ width: 210,height:30}} onClick={handleSubmit}>SignUp</Button>
-                            <p>Already have an account? <Link to='/login' style={{textDecoration : "none"}}>Sign in</Link></p>
+                            <p>Already have an account? <Link to='/login' style={{textDecoration : "none"}}> Sign in</Link></p>
                         </div>
                         </Paper>
                     </div>
