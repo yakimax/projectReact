@@ -8,8 +8,8 @@ export function AuthProvider({children}){
     const [user,setUser] = useState(null) ;
     const [load,setLoading] = useState(true) ;
 
-    function Login(email,password){
-        auth.signInWithEmailAndPassword(email,password);
+    async function Login(email,password){
+            await auth.signInWithEmailAndPassword(email,password);
     }
     
     function SignUp(email,password){

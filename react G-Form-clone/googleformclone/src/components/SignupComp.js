@@ -17,18 +17,26 @@ function SignupComp() {
     const [pass,setPass] = useState('') ;
     const [user,setUser] = useState('') ;
     const [name,setName] = useState('') ;
-    // const [error,setError] = useState('') ;
+    const [error,setError] = useState('') ;
     const {SignUp} = useContext(AuthContext) ;
+    const [loading,setLoading] = useState(false);
     const history = useNavigate();
 
     let handleSubmit = async()=>{
         try{
+            setLoading(true);
             let userObj = await SignUp(email,pass);
             setUser(userObj.user);
+            setLoading(false);
             console.log(userObj);
             history('/');
         }catch(err){
-            console.log(err);
+            setError(err);
+            setTimeout(()=>{
+                console.log(error);
+                setError('');
+            },2000);
+            setLoading(false);
         }
     }
 
@@ -45,7 +53,7 @@ function SignupComp() {
                             <TextField id="email" label="Email" variant="outlined" onChange={(e)=>setEmail(e.target.value)}/>
                             <TextField id="pass" label="Password" variant="outlined"  onChange={(e)=>setPass(e.target.value)}/>
                             <TextField id="name" label="User Name" variant="outlined"  onChange={(e)=>setName(e.target.value)}/>
-                            <Button color="primary" size='large' variant='contained'   sx={{ width: 210,height:30}} onClick={handleSubmit}>SignUp</Button>
+                            <Button color="primary" size='large' variant='contained' disabled={loading}  sx={{ width: 210,height:30}} onClick={handleSubmit}>SignUp</Button>
                             <p>Already have an account? <Link to='/login' style={{textDecoration : "none"}}> Sign in</Link></p>
                         </div>
                         </Paper>

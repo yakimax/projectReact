@@ -17,13 +17,24 @@ function Signin() {
     const [pass,setPass] = useState('') ;
     const {Login} = useContext(AuthContext) ;
     const navigate = useNavigate() ;
+    const [loading,setLoading] = useState(false);
+    const [error,setError] = useState('') ;
 
-    let handleSubmit = ()=>{
+
+    let handleSubmit = async()=>{
         try{
-            Login(email,pass) ;
+            setLoading(true) ;
+            let userObj = await Login(email,pass) ;
+            console.log(userObj) ;
+            setLoading(false);
             navigate('/') ;
         }catch(err){
-            console.log(err) ;
+          setError(err);
+          setTimeout(()=>{
+              console.log(err);
+              setError('');
+          },2000);
+          setLoading(false);
         }
     }
   
@@ -35,10 +46,10 @@ function Signin() {
             <img src={image}  alt=''></img>
           </div>
           <div className='signupMain'>
-            <TextField id="email" label="Email" variant="outlined" onChange={(e)=>setEmail(e.target.value)}/>
-            <TextField id="pass" label="Password" variant="outlined"  onChange={(e)=>setPass(e.target.value)}/>
-            <Button color="primary" size='large' variant='contained'   sx={{ width: 210,height:30}} onClick={handleSubmit}>login</Button>
-            <p>Dont have an account? <Link to='/signup' style={{textDecoration : "none"}}> Sign up</Link></p>
+            <TextField id="email" label="Email" variant="outlined" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+            <TextField id="pass" label="Password" variant="outlined"  value={pass} onChange={(e)=>setPass(e.target.value)}/>
+            <Button color="primary" size='large' variant='contained' disabled={loading}  sx={{ width: 210,height:30}} onClick={handleSubmit}>login</Button>
+            <p>Dont have an account? <Link to='/signup'  style={{textDecoration : "none"}}> Sign up</Link></p>
           </div>
         </Paper>
     </div>
