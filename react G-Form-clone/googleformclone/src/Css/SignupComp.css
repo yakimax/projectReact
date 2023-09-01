@@ -1,7 +1,19 @@
 .signupMain{
-    margin-top: 30vh;
+    position: absolute;
+    align-items: center;
+    display: flex ;
+    margin-top: 39%;
+    flex-direction: column ;
+    gap : 10px ;
+}
+
+.outer{
     display: flex ;
     align-items: center ;
-    justify-content: center;
-    flex-direction: column ;
+    justify-content: center ;
+    margin-top: 25vh ;
+}
+.image-holder{
+    margin-top: 5px;
+    position: relative;
 }
