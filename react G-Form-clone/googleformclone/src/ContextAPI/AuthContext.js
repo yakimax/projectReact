@@ -5,11 +5,11 @@ export const AuthContext = React.createContext();
 
 export function AuthProvider({children}){
 
-    const [user,setUser] = useState('') ;
-    const [load,setLoading] = useState(false) ;
+    const [user,setUser] = useState(null) ;
+    const [load,setLoading] = useState(true) ;
 
     function Login(email,password){
-        return auth.signInWithEmailAndPassword(email,password);
+        auth.signInWithEmailAndPassword(email,password);
     }
     
     function SignUp(email,password){
@@ -21,8 +21,12 @@ export function AuthProvider({children}){
     }
 
     useEffect(()=>{
-        let Listner = auth.onAuthStateChanged((UserId)=>{
-            setUser(UserId);
+        let Listner =  auth.onAuthStateChanged((UserId)=>{
+            if(UserId){
+                setUser(UserId);
+            }else{
+                setUser(null);
+            }
             setLoading(false);
         })
         return ()=>{

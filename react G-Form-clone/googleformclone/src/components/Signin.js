@@ -12,7 +12,7 @@ function Signin() {
     let handleSubmit = async()=>{
         try{
             await Login(email,pass);
-            history('/main');
+            history('/');
         }catch(err){
             console.log(err);
         }
@@ -25,7 +25,7 @@ function Signin() {
         <label htmlFor='pass'/>
         <input type='password' id='pass' value={pass} onChange={(e)=>setPass(e.target.value)}/>
         <button type='button' onClick={handleSubmit}>login</button>
-      <Link to='/signup' style={{textDecoration : "none"}}>or Sign up</Link>
+        <Link to='/signup' style={{textDecoration : "none"}}> or Sign up</Link>
     </>
   )
 }
