@@ -39,7 +39,7 @@ function Signin() {
     }
   
   return (
-    <>
+    <>+++++++++++++++
     <div className='outer'>
         <Paper elevation={13} sx={{borderRadius:2,backgroundColor: 'white',width:'25vw',height:'55vh',position:'relative',display:'flex',flexDirection:'column',alignItems:'center' }}>
           <div className='image-holder'>
