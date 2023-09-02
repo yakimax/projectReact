@@ -5,8 +5,14 @@ function Main() {
     const {SignOut,user} = useContext(AuthContext) ;
   return (
     <div>
-        <div>{user.uid}</div>
-        <button type='button' onClick={SignOut}>logout</button>
+      {
+        user !=='' ?
+        <div>{user.uid}
+          <button type='button' onClick={SignOut}>logout</button>
+        </div>
+        :
+        <></>
+      }
     </div>
   )
 }

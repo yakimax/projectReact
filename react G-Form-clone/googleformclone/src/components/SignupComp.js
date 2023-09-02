@@ -45,7 +45,7 @@ function SignupComp() {
                 {
                     user === '' ?
                     <div className='outer'>
-                        <Paper elevation={13} sx={{borderRadius:2,backgroundColor: 'white',width:'25vw',height:'63vh',position:'relative',display:'flex',flexDirection:'column',alignItems:'center' }}>
+                        <Paper elevation={13} sx={{borderRadius:2,backgroundColor: 'white',width:'25vw',height:'66vh',position:'relative',display:'flex',flexDirection:'column',alignItems:'center' }}>
                         <div className='image-holder'>
                             <img src={image}  alt=''></img>
                         </div>
@@ -53,7 +53,7 @@ function SignupComp() {
                             <TextField id="email" label="Email" variant="outlined" onChange={(e)=>setEmail(e.target.value)}/>
                             <TextField id="pass" label="Password" variant="outlined"  onChange={(e)=>setPass(e.target.value)}/>
                             <TextField id="name" label="User Name" variant="outlined"  onChange={(e)=>setName(e.target.value)}/>
-                            <Button color="primary" size='large' variant='contained' disabled={loading}  sx={{ width: 210,height:30}} onClick={handleSubmit}>SignUp</Button>
+                            <Button color="primary" size='large' variant='contained' disabled={loading}  sx={{ width: 255,height:30}} onClick={handleSubmit}>SignUp</Button>
                             <p>Already have an account? <Link to='/login' style={{textDecoration : "none"}}> Sign in</Link></p>
                         </div>
                         </Paper>

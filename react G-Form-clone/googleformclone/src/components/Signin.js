@@ -39,7 +39,7 @@ function Signin() {
     }
   
   return (
-    <>+++++++++++++++
+    <>
     <div className='outer'>
         <Paper elevation={13} sx={{borderRadius:2,backgroundColor: 'white',width:'25vw',height:'55vh',position:'relative',display:'flex',flexDirection:'column',alignItems:'center' }}>
           <div className='image-holder'>
@@ -48,7 +48,7 @@ function Signin() {
           <div className='signupMain'>
             <TextField id="email" label="Email" variant="outlined" value={email} onChange={(e)=>setEmail(e.target.value)}/>
             <TextField id="pass" label="Password" variant="outlined"  value={pass} onChange={(e)=>setPass(e.target.value)}/>
-            <Button color="primary" size='large' variant='contained' disabled={loading}  sx={{ width: 210,height:30}} onClick={handleSubmit}>login</Button>
+            <Button color="primary" size='large' variant='contained' disabled={loading}  sx={{ width: 255,height:30}} onClick={handleSubmit}>login</Button>
             <p>Dont have an account? <Link to='/signup'  style={{textDecoration : "none"}}> Sign up</Link></p>
           </div>
         </Paper>
