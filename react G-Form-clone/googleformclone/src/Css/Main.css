@@ -1,0 +1,10 @@
+.outer{
+    justify-content : center ;
+    align-items : center ;
+}
+.inner{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    border: solid;
+}

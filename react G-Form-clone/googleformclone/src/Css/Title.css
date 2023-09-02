@@ -1,0 +1,8 @@
+.title-outer{
+    position: absolute ;
+    border-radius: 10px ;
+}
+.title-inner{
+    position: inherit ;
+    border-radius: 10px ;
+}
